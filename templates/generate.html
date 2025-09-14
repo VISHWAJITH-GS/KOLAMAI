@@ -1,149 +1,439 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% extends 'base.html' %}{% extends "base.html" %}
 
-{% block title %}Kolam Analysis Results - Kolam AI{% endblock %}
 
-{% block content %}
-<div class="container mt-4">
-    <!-- Header Section -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <h2 class="text-center mb-3">
-                <i class="fas fa-chart-line text-primary"></i>
-                Pattern Analysis Results
-            </h2>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Results</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+
+{% block title %}Generate Kolam Pattern{% endblock %}
+
+
+
+{% block content %}{% block title %}Generate Kolam Pattern{% endblock %}{% block title %}Kolam Analysis Results - Kolam AI{% endblock %}
+
+<div class="container my-5">
 
     <div class="row">
-        <!-- Image Display Section -->
-        <div class="col-lg-6 mb-4">
-            <div class="card result-card h-100">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="card-title mb-0">
-                        <i class="fas fa-image"></i>
-                        Uploaded Image
-                    </h5>
-                </div>
-                <div class="card-body text-center">
-                    <img src="{{ image_path }}" 
-                         alt="Uploaded Kolam Pattern" 
-                         class="img-fluid rounded shadow"
-                         id="resultImage"
-                         style="max-height: 400px; object-fit: contain;">
-                    
-                    <div class="mt-3">
-                        <button class="btn btn-outline-primary btn-sm" onclick="downloadImage()">
-                            <i class="fas fa-download"></i> Download Image
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Classification Results Section -->
-        <div class="col-lg-6 mb-4">
-            <div class="card result-card h-100">
-                <div class="card-header bg-success text-white">
-                    <h5 class="card-title mb-0">
-                        <i class="fas fa-brain"></i>
-                        Classification Results
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <!-- Main Classification -->
-                    <div class="mb-4">
-                        <h6 class="text-muted">Pattern Type</h6>
-                        <h4 class="text-primary">{{ classification }}</h4>
-                        
-                        <!-- Confidence Score -->
-                        <div class="mb-3">
-                            <label class="form-label">Confidence Score</label>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar bg-success" 
-                                     role="progressbar" 
-                                     style="width: {{ ('%.1f' % confidence) ~ '%' if confidence is not none else '0%' }}"
-                                     aria-valuenow="{{ confidence if confidence is not none else 0 }}" 
-                                     aria-valuemin="0" 
-                                     aria-valuemax="100">
-                                    {{ "%.1f"|format(confidence if confidence is not none else 0) }}%
-                                </div>
-                            </div>
-                        </div>
+        <div class="col-md-12 mb-4">
 
-                        <!-- Pattern Features -->
-                        <div class="feature-list">
-                            <h6 class="text-muted mb-3">Detected Features</h6>
-                            {% for feature, value in features.items() %}
-                            <div class="row mb-2">
-                                <div class="col-7">
-                                    <span class="badge bg-light text-dark">{{ feature }}</span>
-                                </div>
-                                <div class="col-5 text-end">
-                                    {% if value is number %}
-                                        <strong>{{ "%.2f"|format(value) }}</strong>
-                                    {% else %}
-                                        <strong>{{ value }}</strong>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <h1 class="text-center tamil-heading">கோலம் உருவாக்குதல்</h1>{% block content %}{% block content %}
+
+            <p class="text-center mb-5">Generate Custom Kolam Patterns</p>
+
+        </div><div class="container my-5"><div class="container mt-4">
+
     </div>
 
-    <!-- Cultural Information Section -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card result-card">
-                <div class="card-header bg-warning text-dark">
-                    <h5 class="card-title mb-0">
-                        <i class="fas fa-book"></i>
-                        Cultural Significance
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="text-muted">Pattern Name (Tamil)</h6>
-                            <p class="h5 text-primary">{{ cultural_info.tamil_name or 'தெரியவில்லை' }}</p>
-                            
-                            <h6 class="text-muted mt-3">Origin Region</h6>
-                            <p>{{ cultural_info.region or 'General Tamil Nadu' }}</p>
-                            
-                            <h6 class="text-muted mt-3">Complexity Level</h6>
-                            <div class="d-flex align-items-center">
-                                {% set complexity = cultural_info.complexity_level or 3 %}
-                                {% for i in range(1, 6) %}
-                                    {% if i <= complexity %}
-                                        <i class="fas fa-star text-warning"></i>
-                                    {% else %}
-                                        <i class="far fa-star text-muted"></i>
-                                    {% endif %}
-                                {% endfor %}
-                                <span class="ms-2">({{ complexity }}/5)</span>
-                            </div>
+    <div class="row">    <!-- Header Section -->
+
+    <div class="row">
+
+        <div class="col-md-5">        <div class="col-md-12 mb-4">    <div class="row mb-4">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body">            <h1 class="text-center tamil-heading">கோலம் உருவாக்குதல்</h1>        <div class="col-12">
+
+                    <h5 class="card-title tamil-heading">அளவுருக்கள்</h5>
+
+                    <h6 class="card-subtitle mb-3">Parameters</h6>            <p class="text-center mb-5">Generate Custom Kolam Patterns</p>            <h2 class="text-center mb-3">
+
+                    
+
+                    <form action="{{ url_for('generate_pattern') }}" method="post">        </div>                <i class="fas fa-chart-line text-primary"></i>
+
+                        <div class="mb-3">
+
+                            <label for="pattern_type" class="form-label">Pattern Type</label>    </div>                Pattern Analysis Results
+
+                            <select class="form-select" name="pattern_type" id="pattern_type">
+
+                                <option value="sikku_kolam">சிக்கு கோலம் (Sikku)</option>            </h2>
+
+                                <option value="pulli_kolam">புள்ளி கோலம் (Pulli)</option>
+
+                                <option value="kambi_kolam">கம்பி கோலம் (Kambi)</option>    <div class="row">            <nav aria-label="breadcrumb">
+
+                                <option value="padi_kolam">படி கோலம் (Padi)</option>
+
+                            </select>        <div class="col-md-5">                <ol class="breadcrumb">
+
                         </div>
+
+                                    <div class="card shadow-sm">                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+
+                        <div class="mb-3">
+
+                            <label for="grid_size" class="form-label">Grid Size</label>                <div class="card-body">                    <li class="breadcrumb-item active" aria-current="page">Results</li>
+
+                            <input type="range" class="form-range" min="5" max="20" value="10" name="grid_size" id="grid_size">
+
+                            <div class="d-flex justify-content-between">                    <h5 class="card-title tamil-heading">அளவுருக்கள்</h5>                </ol>
+
+                                <small>Simple</small>
+
+                                <small id="grid_size_value">10</small>                    <h6 class="card-subtitle mb-3">Parameters</h6>            </nav>
+
+                                <small>Complex</small>
+
+                            </div>                            </div>
+
+                        </div>
+
+                                            <form action="{{ url_for('generate_pattern') }}" method="post">    </div>
+
+                        <div class="mb-3">
+
+                            <label for="symmetry" class="form-label">Symmetry</label>                        <div class="mb-3">
+
+                            <select class="form-select" name="symmetry" id="symmetry">
+
+                                <option value="rotational">Rotational</option>                            <label for="pattern_type" class="form-label">Pattern Type</label>    <div class="row">
+
+                                <option value="bilateral">Bilateral</option>
+
+                                <option value="asymmetric">Asymmetric</option>                            <select class="form-select" name="pattern_type" id="pattern_type">        <!-- Image Display Section -->
+
+                            </select>
+
+                        </div>                                <option value="sikku_kolam">சிக்கு கோலம் (Sikku)</option>        <div class="col-lg-6 mb-4">
+
                         
-                        <div class="col-md-6">
-                            <h6 class="text-muted">Symbolic Meaning</h6>
-                            <p>{{ cultural_info.significance or 'This pattern represents harmony, prosperity, and spiritual balance in Tamil culture.' }}</p>
-                            
-                            <h6 class="text-muted mt-3">Festival Association</h6>
-                            <p>{{ cultural_info.festival or 'Daily practice and special occasions' }}</p>
-                            
-                            <h6 class="text-muted mt-3">Season</h6>
-                            <p>{{ cultural_info.season or 'Year-round' }}</p>
+
+                        <div class="mb-3">                                <option value="pulli_kolam">புள்ளி கோலம் (Pulli)</option>            <div class="card result-card h-100">
+
+                            <label for="color_scheme" class="form-label">Color Scheme</label>
+
+                            <select class="form-select" name="color_scheme" id="color_scheme">                                <option value="kambi_kolam">கம்பி கோலம் (Kambi)</option>                <div class="card-header bg-primary text-white">
+
+                                <option value="traditional">Traditional</option>
+
+                                <option value="vibrant">Vibrant</option>                                <option value="padi_kolam">படி கோலம் (Padi)</option>                    <h5 class="card-title mb-0">
+
+                                <option value="pastel">Pastel</option>
+
+                                <option value="monochrome">Monochrome</option>                            </select>                        <i class="fas fa-image"></i>
+
+                            </select>
+
+                        </div>                        </div>                        Uploaded Image
+
+                        
+
+                        <div class="mb-3">                                            </h5>
+
+                            <label for="complexity" class="form-label">Design Complexity</label>
+
+                            <input type="range" class="form-range" min="1" max="10" value="5" name="complexity" id="complexity">                        <div class="mb-3">                </div>
+
+                            <div class="d-flex justify-content-between">
+
+                                <small>Simple</small>                            <label for="grid_size" class="form-label">Grid Size</label>                <div class="card-body text-center">
+
+                                <small id="complexity_value">5</small>
+
+                                <small>Complex</small>                            <input type="range" class="form-range" min="5" max="20" value="10" name="grid_size" id="grid_size">                    <img src="{{ image_path }}" 
+
+                            </div>
+
+                        </div>                            <div class="d-flex justify-content-between">                         alt="Uploaded Kolam Pattern" 
+
+                        
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3">                                <small>Simple</small>                         class="img-fluid rounded shadow"
+
+                            <i class="fas fa-magic me-2"></i> Generate Pattern
+
+                        </button>                                <small id="grid_size_value">10</small>                         id="resultImage"
+
+                    </form>
+
+                </div>                                <small>Complex</small>                         style="max-height: 400px; object-fit: contain;">
+
+            </div>
+
+        </div>                            </div>                    
+
+        
+
+        <div class="col-md-7">                        </div>                    <div class="mt-3">
+
+            <div class="card shadow-sm h-100">
+
+                <div class="card-body">                                                <button class="btn btn-outline-primary btn-sm" onclick="downloadImage()">
+
+                    <h5 class="card-title tamil-heading">உருவாக்கப்பட்ட கோலம்</h5>
+
+                    <h6 class="card-subtitle mb-3">Generated Pattern</h6>                        <div class="mb-3">                            <i class="fas fa-download"></i> Download Image
+
+                    
+
+                    {% if generated_svg %}                            <label for="symmetry" class="form-label">Symmetry</label>                        </button>
+
+                        <div class="text-center mb-4 pattern-display">
+
+                            {{ generated_svg|safe }}                            <select class="form-select" name="symmetry" id="symmetry">                    </div>
+
                         </div>
-                    </div>
+
+                                                        <option value="rotational">Rotational</option>                </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">                                <option value="bilateral">Bilateral</option>            </div>
+
+                                <div class="card bg-light">
+
+                                    <div class="card-body">                                <option value="asymmetric">Asymmetric</option>        </div>
+
+                                        <h6 class="card-title">Pattern Details</h6>
+
+                                        <ul class="list-unstyled">                            </select>
+
+                                            <li><strong>Type:</strong> {{ parameters.pattern_type }}</li>
+
+                                            <li><strong>Grid Size:</strong> {{ parameters.grid_size }}</li>                        </div>        <!-- Classification Results Section -->
+
+                                            <li><strong>Symmetry:</strong> {{ parameters.symmetry }}</li>
+
+                                        </ul>                                <div class="col-lg-6 mb-4">
+
+                                    </div>
+
+                                </div>                        <div class="mb-3">            <div class="card result-card h-100">
+
+                            </div>
+
+                            <div class="col-md-6">                            <label for="color_scheme" class="form-label">Color Scheme</label>                <div class="card-header bg-success text-white">
+
+                                <div class="card bg-light">
+
+                                    <div class="card-body">                            <select class="form-select" name="color_scheme" id="color_scheme">                    <h5 class="card-title mb-0">
+
+                                        <h6 class="card-title">Authenticity Score</h6>
+
+                                        <div class="progress mb-2">                                <option value="traditional">Traditional</option>                        <i class="fas fa-brain"></i>
+
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ authenticity_score*100 }}%" aria-valuenow="{{ authenticity_score*100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+
+                                        </div>                                <option value="vibrant">Vibrant</option>                        Classification Results
+
+                                        <small>{{ (authenticity_score*100)|round|int }}% authentic to traditional designs</small>
+
+                                    </div>                                <option value="pastel">Pastel</option>                    </h5>
+
+                                </div>
+
+                            </div>                                <option value="monochrome">Monochrome</option>                </div>
+
+                        </div>
+
+                                                    </select>                <div class="card-body">
+
+                        <div class="mt-4">
+
+                            <a href="{{ url_for('static', filename='generated/svg/' + filename) }}" download class="btn btn-outline-primary">                        </div>                    <!-- Main Classification -->
+
+                                <i class="fas fa-download me-2"></i> Download SVG
+
+                            </a>                                            <div class="mb-4">
+
+                            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary ms-2">
+
+                                <i class="fas fa-home me-2"></i> Back to Home                        <div class="mb-3">                        <h6 class="text-muted">Pattern Type</h6>
+
+                            </a>
+
+                        </div>                            <label for="complexity" class="form-label">Design Complexity</label>                        <h4 class="text-primary">{{ classification }}</h4>
+
+                    {% else %}
+
+                        <div class="text-center py-5">                            <input type="range" class="form-range" min="1" max="10" value="5" name="complexity" id="complexity">                        
+
+                            <img src="{{ url_for('static', filename='images/traditional-kolam.jpg') }}" alt="Traditional Kolam" class="img-fluid mb-4" style="max-height: 300px;">
+
+                            <p class="text-muted">Adjust parameters and click "Generate Pattern" to create a custom Kolam design</p>                            <div class="d-flex justify-content-between">                        <!-- Confidence Score -->
+
+                        </div>
+
+                    {% endif %}                                <small>Simple</small>                        <div class="mb-3">
+
+                </div>
+
+            </div>                                <small id="complexity_value">5</small>                            <label class="form-label">Confidence Score</label>
+
+        </div>
+
+    </div>                                <small>Complex</small>                            <div class="progress" style="height: 20px;">
+
+</div>
+
+                            </div>                                <div class="progress-bar bg-success" 
+
+<script>
+
+    // Update range input displays                        </div>                                     role="progressbar" 
+
+    document.getElementById('grid_size').addEventListener('input', function() {
+
+        document.getElementById('grid_size_value').textContent = this.value;                                                             style="width: {{ ('%.1f' % confidence) ~ '%' if confidence is not none else '0%' }}"
+
+    });
+
+                            <button type="submit" class="btn btn-primary w-100 mt-3">                                     aria-valuenow="{{ confidence if confidence is not none else 0 }}" 
+
+    document.getElementById('complexity').addEventListener('input', function() {
+
+        document.getElementById('complexity_value').textContent = this.value;                            <i class="fas fa-magic me-2"></i> Generate Pattern                                     aria-valuemin="0" 
+
+    });
+
+</script>                        </button>                                     aria-valuemax="100">
+
+{% endblock %}
+                    </form>                                    {{ "%.1f"|format(confidence if confidence is not none else 0) }}%
+
+                </div>                                </div>
+
+            </div>                            </div>
+
+        </div>                        </div>
+
+        
+
+        <div class="col-md-7">                        <!-- Pattern Features -->
+
+            <div class="card shadow-sm h-100">                        <div class="feature-list">
+
+                <div class="card-body">                            <h6 class="text-muted mb-3">Detected Features</h6>
+
+                    <h5 class="card-title tamil-heading">உருவாக்கப்பட்ட கோலம்</h5>                            {% for feature, value in features.items() %}
+
+                    <h6 class="card-subtitle mb-3">Generated Pattern</h6>                            <div class="row mb-2">
+
+                                                    <div class="col-7">
+
+                    {% if generated_svg %}                                    <span class="badge bg-light text-dark">{{ feature }}</span>
+
+                        <div class="text-center mb-4 pattern-display">                                </div>
+
+                            {{ generated_svg|safe }}                                <div class="col-5 text-end">
+
+                        </div>                                    {% if value is number %}
+
+                                                                <strong>{{ "%.2f"|format(value) }}</strong>
+
+                        <div class="row">                                    {% else %}
+
+                            <div class="col-md-6">                                        <strong>{{ value }}</strong>
+
+                                <div class="card bg-light">                                    {% endif %}
+
+                                    <div class="card-body">                                </div>
+
+                                        <h6 class="card-title">Pattern Details</h6>                            </div>
+
+                                        <ul class="list-unstyled">                            {% endfor %}
+
+                                            <li><strong>Type:</strong> {{ parameters.pattern_type }}</li>                        </div>
+
+                                            <li><strong>Grid Size:</strong> {{ parameters.grid_size }}</li>                    </div>
+
+                                            <li><strong>Symmetry:</strong> {{ parameters.symmetry }}</li>                </div>
+
+                                        </ul>            </div>
+
+                                    </div>        </div>
+
+                                </div>    </div>
+
+                            </div>
+
+                            <div class="col-md-6">    <!-- Cultural Information Section -->
+
+                                <div class="card bg-light">    <div class="row mb-4">
+
+                                    <div class="card-body">        <div class="col-12">
+
+                                        <h6 class="card-title">Authenticity Score</h6>            <div class="card result-card">
+
+                                        <div class="progress mb-2">                <div class="card-header bg-warning text-dark">
+
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ authenticity_score*100 }}%" aria-valuenow="{{ authenticity_score*100 }}" aria-valuemin="0" aria-valuemax="100"></div>                    <h5 class="card-title mb-0">
+
+                                        </div>                        <i class="fas fa-book"></i>
+
+                                        <small>{{ (authenticity_score*100)|round|int }}% authentic to traditional designs</small>                        Cultural Significance
+
+                                    </div>                    </h5>
+
+                                </div>                </div>
+
+                            </div>                <div class="card-body">
+
+                        </div>                    <div class="row">
+
+                                                <div class="col-md-6">
+
+                        <div class="mt-4">                            <h6 class="text-muted">Pattern Name (Tamil)</h6>
+
+                            <a href="{{ file_path }}" download class="btn btn-outline-primary">                            <p class="h5 text-primary">{{ cultural_info.tamil_name or 'தெரியவில்லை' }}</p>
+
+                                <i class="fas fa-download me-2"></i> Download SVG                            
+
+                            </a>                            <h6 class="text-muted mt-3">Origin Region</h6>
+
+                            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary ms-2">                            <p>{{ cultural_info.region or 'General Tamil Nadu' }}</p>
+
+                                <i class="fas fa-home me-2"></i> Back to Home                            
+
+                            </a>                            <h6 class="text-muted mt-3">Complexity Level</h6>
+
+                        </div>                            <div class="d-flex align-items-center">
+
+                    {% else %}                                {% set complexity = cultural_info.complexity_level or 3 %}
+
+                        <div class="text-center py-5">                                {% for i in range(1, 6) %}
+
+                            <img src="{{ url_for('static', filename='images/traditional-kolam.jpg') }}" alt="Traditional Kolam" class="img-fluid mb-4" style="max-height: 300px;">                                    {% if i <= complexity %}
+
+                            <p class="text-muted">Adjust parameters and click "Generate Pattern" to create a custom Kolam design</p>                                        <i class="fas fa-star text-warning"></i>
+
+                        </div>                                    {% else %}
+
+                    {% endif %}                                        <i class="far fa-star text-muted"></i>
+
+                </div>                                    {% endif %}
+
+            </div>                                {% endfor %}
+
+        </div>                                <span class="ms-2">({{ complexity }}/5)</span>
+
+    </div>                            </div>
+
+</div>                        </div>
+
+                        
+
+<script>                        <div class="col-md-6">
+
+    // Update range input displays                            <h6 class="text-muted">Symbolic Meaning</h6>
+
+    document.getElementById('grid_size').addEventListener('input', function() {                            <p>{{ cultural_info.significance or 'This pattern represents harmony, prosperity, and spiritual balance in Tamil culture.' }}</p>
+
+        document.getElementById('grid_size_value').textContent = this.value;                            
+
+    });                            <h6 class="text-muted mt-3">Festival Association</h6>
+
+                                <p>{{ cultural_info.festival or 'Daily practice and special occasions' }}</p>
+
+    document.getElementById('complexity').addEventListener('input', function() {                            
+
+        document.getElementById('complexity_value').textContent = this.value;                            <h6 class="text-muted mt-3">Season</h6>
+
+    });                            <p>{{ cultural_info.season or 'Year-round' }}</p>
+
+</script>                        </div>
+
+{% endblock %}                    </div>
                 </div>
             </div>
         </div>

@@ -88,3 +88,28 @@ venv.bak/
 
 # VS Code
 .vscode/
+
+# Large dataset files
+data/datasets/Kolam CSV files/
+data/datasets/archive.zip
+data/datasets/kambi_kolam/
+data/datasets/pulli_kolam/
+data/datasets/sikku_kolam/
+data/datasets/rangoli/
+data/datasets/padi_kolam/
+
+# User uploads folder
+static/uploads/*
+!static/uploads/sample1.jpg
+!static/uploads/sample2.jpg
+!static/uploads/sample3.jpg
+
+# Generated patterns
+static/generated/svg/*
+static/generated/png/*
+!static/generated/svg/.gitkeep
+!static/generated/png/.gitkeep
+
+# Temporary files
+sruthi.css
+sruthi.html

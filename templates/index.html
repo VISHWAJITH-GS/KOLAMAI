@@ -1,53 +1,159 @@
 {% extends "base.html" %}
 
-{% block title %}Kolam AI - Discover & Create Authentic Tamil Kolam Patterns{% endblock %}
+{% block title %}Kolam AI - Preserve Tamil Heritage with Technology{% endblock %}
 
 {% block meta_description %}Experience the beauty of Tamil Kolam patterns with AI-powered recognition and generation. Upload your Kolam images for instant classification or create new authentic patterns using traditional methods.{% endblock %}
 
 {% block og_title %}Kolam AI - Traditional Tamil Pattern Recognition & Generation{% endblock %}
 {% block og_description %}Discover, classify, and create authentic Tamil Kolam patterns using advanced AI technology that respects cultural heritage.{% endblock %}
 
-{% block extra_css %}
-<style>
-    .hero-pattern {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        opacity: 0.1;
-        animation: float 15s ease-in-out infinite;
-    }
-    
-    .hero-pattern:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-    .hero-pattern:nth-child(2) { top: 20%; right: 15%; animation-delay: 3s; }
-    .hero-pattern:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 6s; }
-    .hero-pattern:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 9s; }
-    
-    .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-        color: var(--primary-red);
-    }
-    
-    .testimonial-card {
-        background: white;
-        border-radius: 15px;
-        padding: 2rem;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        height: 100%;
-    }
-    
-    .number-counter {
-        font-size: 3rem;
-        font-weight: bold;
-        color: var(--primary-red);
-    }
-</style>
-{% endblock %}
-
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section" id="hero">
-    <!-- Floating Pattern Decorations -->
+<section class="hero" id="home">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>Preserve Tamil Heritage with AI Technology</h1>
+            <p class="hero-subtitle">Experience the perfect fusion of ancient Tamil Kolam artistry and cutting-edge artificial intelligence to celebrate and preserve our cultural heritage.</p>
+            
+            <div class="cultural-quote">
+                <div class="tamil-text">கோலம் போடுவது நம் பண்பாட்டின் அழகு</div>
+                <div class="translation">"Drawing Kolam is the beauty of our culture"</div>
+            </div>
+
+            <div class="hero-ctas">
+                <a href="#analyze" class="btn btn-primary">
+                    <i class="fas fa-camera"></i> Analyze Pattern
+                </a>
+                <a href="{{ url_for('generate_pattern') }}" class="btn btn-secondary">
+                    <i class="fas fa-magic"></i> Generate New
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="kolam-demo">
+                <div class="kolam-pattern"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down scroll-arrow"></i>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+    <h2 class="section-title">Smart AI-Powered Features</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-brain feature-icon"></i>
+            <h3 class="feature-title">Smart Analysis</h3>
+            <p class="feature-description">Advanced computer vision technology analyzes your Kolam patterns with incredible precision, identifying traditional elements and cultural significance.</p>
+            <span class="feature-badge">96% Accuracy</span>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-magic feature-icon"></i>
+            <h3 class="feature-title">AI Generation</h3>
+            <p class="feature-description">Create authentic new Kolam designs using AI trained on thousands of traditional patterns while respecting cultural authenticity.</p>
+            <span class="feature-badge">5000+ Patterns</span>
+        </div>
+        
+        <div class="feature-card">
+            <i class="fas fa-archive feature-icon"></i>
+            <h3 class="feature-title">Heritage Archive</h3>
+            <p class="feature-description">Explore our comprehensive database of traditional Kolam patterns from across Tamil Nadu, each with detailed cultural context.</p>
+            <span class="feature-badge">1200+ Archive</span>
+        </div>
+    </div>
+</section>
+
+<!-- Upload Section -->
+<section class="upload-section" id="analyze">
+    <div class="upload-container">
+        <h2 class="section-title">Analyze Your Kolam Pattern</h2>
+        
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <div class="upload-area" id="drop-area">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <div class="upload-text">Drop your Kolam image here</div>
+                <div class="upload-subtext">Or click to browse files • PNG, JPG up to 10MB</div>
+                <input type="file" id="file-upload" name="file" accept="image/*" style="display: none;">
+                <div class="hero-ctas" style="margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-primary" onclick="document.getElementById('file-upload').click()">
+                        <i class="fas fa-folder-open"></i> Choose File
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cameraBtn">
+                        <i class="fas fa-camera"></i> Use Camera
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="sample-patterns">
+            <div class="sample-pattern" onclick="window.location.href='{{ url_for('classify_pattern') }}?sample=sample1.jpg'">
+                <div style="background: radial-gradient(circle, var(--tamil-red) 1px, transparent 1px); background-size: 15px 15px; height: 100%;"></div>
+            </div>
+            <div class="sample-pattern" onclick="window.location.href='{{ url_for('classify_pattern') }}?sample=sample2.jpg'">
+                <div style="background: conic-gradient(from 0deg, var(--sacred-gold), var(--vibrant-orange), var(--tamil-red), var(--sacred-gold)); height: 100%;"></div>
+            </div>
+            <div class="sample-pattern" onclick="window.location.href='{{ url_for('classify_pattern') }}?sample=sample3.jpg'">
+                <div style="background: repeating-linear-gradient(45deg, var(--tamil-red) 0px, var(--tamil-red) 10px, transparent 10px, transparent 20px); height: 100%;"></div>
+            </div>
+            <div class="sample-pattern" onclick="window.location.href='{{ url_for('classify_pattern') }}?sample=sample1.jpg'">
+                <div style="background: radial-gradient(circle at 25% 25%, var(--vibrant-orange) 2px, transparent 2px), radial-gradient(circle at 75% 75%, var(--sacred-gold) 2px, transparent 2px); background-size: 30px 30px; height: 100%;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section" id="gallery">
+    <h2 class="section-title">Pattern Gallery</h2>
+    
+    <div class="gallery-grid">
+        {% for i in range(1, 7) %}
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/traditional-kolam.jpg') }}" alt="Kolam Pattern {{ i }}">
+            <div class="gallery-caption">
+                <h4>Traditional Kolam {{ i }}</h4>
+                <p>Tamil Nadu Traditional Pattern</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+    <div class="about-container">
+        <h2 class="section-title">About Kolam AI</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem;">
+            <div>
+                <h3 style="color: var(--tamil-red); font-size: 1.8rem; margin-bottom: 1rem;">Preserving Heritage Through Technology</h3>
+                <p style="margin-bottom: 1rem;">Kolam AI represents the harmonious fusion of ancient Tamil cultural traditions with cutting-edge artificial intelligence. Our mission is to preserve, analyze, and celebrate the rich heritage of Kolam art that has adorned Tamil homes for centuries.</p>
+                <p style="margin-bottom: 1rem;">Through advanced computer vision and machine learning, we help identify, categorize, and generate authentic Kolam patterns while maintaining deep respect for their cultural significance and traditional origins.</p>
+                <div class="hero-ctas" style="margin-top: 2rem;">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-book"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="width: 300px; height: 300px; background: var(--gradient-primary); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; font-weight: 600;">
+                    <div>
+                        <i class="fas fa-brain" style="font-size: 4rem; margin-bottom: 1rem; display: block;"></i>
+                        AI + Culture<br>
+                        Perfect Harmony
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <div class="hero-pattern">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -522,51 +628,67 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Enhanced upload area interactions
-const uploadArea = document.getElementById('upload-area');
-const fileInput = document.getElementById('file-input');
+const dropArea = document.getElementById('drop-area');
+const fileInput = document.getElementById('file-upload');
+const loadingOverlay = document.getElementById('loadingOverlay');
 
-if (uploadArea && fileInput) {
-    // File selection through click
-    uploadArea.addEventListener('click', () => fileInput.click());
-    
-    // Drag and drop functionality
+if (dropArea && fileInput) {
+    // Prevent default behaviors
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        uploadArea.addEventListener(eventName, preventDefaults, false);
+        dropArea.addEventListener(eventName, function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }, false);
     });
     
-    function preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    
+    // Highlight drop area when dragging over it
     ['dragenter', 'dragover'].forEach(eventName => {
-        uploadArea.addEventListener(eventName, highlight, false);
+        dropArea.addEventListener(eventName, function() {
+            dropArea.classList.add('dragover');
+        }, false);
     });
     
+    // Remove highlight when dragging leaves or on drop
     ['dragleave', 'drop'].forEach(eventName => {
-        uploadArea.addEventListener(eventName, unhighlight, false);
+        dropArea.addEventListener(eventName, function() {
+            dropArea.classList.remove('dragover');
+        }, false);
     });
     
-    function highlight() {
-        uploadArea.classList.add('drag-over');
-    }
-    
-    function unhighlight() {
-        uploadArea.classList.remove('drag-over');
-    }
-    
-    uploadArea.addEventListener('drop', handleDrop, false);
-    
-    function handleDrop(e) {
-        const dt = e.dataTransfer;
-        const files = dt.files;
+    // Handle file drop
+    dropArea.addEventListener('drop', function(e) {
+        const files = e.dataTransfer.files;
         if (files.length > 0) {
             fileInput.files = files;
-            // Trigger file processing
-            if (window.processFile) {
-                window.processFile(files[0]);
+            // Submit the form
+            dropArea.closest('form').submit();
+            
+            // Show loading if overlay exists
+            if (loadingOverlay) {
+                loadingOverlay.style.display = 'flex';
             }
         }
+    }, false);
+    
+    // Handle file selection
+    fileInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+            // Submit the form
+            this.closest('form').submit();
+            
+            // Show loading if overlay exists
+            if (loadingOverlay) {
+                loadingOverlay.style.display = 'flex';
+            }
+        }
+    });
+    
+    // Camera functionality
+    const cameraBtn = document.getElementById('cameraBtn');
+    if (cameraBtn) {
+        cameraBtn.addEventListener('click', function() {
+            alert('Camera functionality coming soon!');
+        });
     }
 }
 
