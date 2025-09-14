@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Large model files
+models/saved/kolam_classifier.h5
+
 # Distribution / packaging
 .Python
 env/
