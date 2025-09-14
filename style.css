@@ -1,0 +1,42 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-section h1,
+.hero-section p {
+  position: relative;
+  z-index: 2;
+}
+
+section {
+  padding: 60px 0;
+}
+
+.feature-box {
+  transition: transform 0.3s ease-in-out;
+}
+.feature-box:hover {
+  transform: translateY(-5px);
+}
+
+.upload-box {
+  border: 2px dashed #007bff;
+  transition: background 0.3s;
+}
+.upload-box.dragover {
+  background: #eaf4ff;
+}
