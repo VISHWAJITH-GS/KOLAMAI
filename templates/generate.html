@@ -67,11 +67,11 @@
                             <div class="progress" style="height: 20px;">
                                 <div class="progress-bar bg-success" 
                                      role="progressbar" 
-                                     style="width: {{ confidence }}%"
-                                     aria-valuenow="{{ confidence }}" 
+                                     style="width: {{ ('%.1f' % confidence) ~ '%' if confidence is not none else '0%' }}"
+                                     aria-valuenow="{{ confidence if confidence is not none else 0 }}" 
                                      aria-valuemin="0" 
                                      aria-valuemax="100">
-                                    {{ "%.1f"|format(confidence) }}%
+                                    {{ "%.1f"|format(confidence if confidence is not none else 0) }}%
                                 </div>
                             </div>
                         </div>

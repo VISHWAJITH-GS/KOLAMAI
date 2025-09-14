@@ -20,6 +20,24 @@ try:
 except ImportError as e:
     print(f"Warning: Could not import some modules: {e}")
     print("Some features may not work until all modules are implemented.")
+    # Fallback allowed_file implementation
+    def allowed_file(filename, allowed_extensions={'png', 'jpg', 'jpeg', 'gif', 'bmp'}):
+        return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions
+    # Fallback preprocess_image implementation
+    def preprocess_image(image):
+        return image
+    # Fallback analyze_pattern implementation
+    def analyze_pattern(image):
+        # Return default features for development
+        return {
+            'num_components': 1,
+            'num_junctions': 0,
+            'num_loops': 0,
+            'structural_complexity': 0.5,
+            'overall': 0.5,
+            'dot_density': 0.1,
+            'line_curve_ratio': 0.5
+        }
 
 # Flask app initialization
 app = Flask(__name__)
@@ -54,6 +72,7 @@ try:
     logger.info("AI models loaded successfully")
 except Exception as e:
     logger.warning(f"Could not load AI models: {e}")
+    logger.warning("KolamClassifier and/or PatternGenerator are not available. ML features will be disabled.")
     classifier = None
     pattern_generator = None
 
@@ -68,25 +87,27 @@ except FileNotFoundError:
 @app.route('/')
 def index():
     """Homepage with upload interface and recent patterns"""
+    from datetime import datetime
+    current_year = datetime.now().year
     try:
         # Get recent classifications for gallery
         recent_patterns = get_recent_patterns(limit=6)
-        
         # Get statistics
         statistics = {
             'total_classifications': len(get_all_classifications()),
             'patterns_generated': len(get_generated_patterns()),
             'cultural_authenticity': calculate_average_authenticity()
         }
-        
         return render_template('index.html', 
                              recent_patterns=recent_patterns,
-                             statistics=statistics)
+                             statistics=statistics,
+                             current_year=current_year)
     except Exception as e:
         logger.error(f"Error in index route: {e}")
         return render_template('index.html', 
                              recent_patterns=[],
-                             statistics={})
+                             statistics={},
+                             current_year=current_year)
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
@@ -154,21 +175,22 @@ def classify_pattern():
             return redirect(url_for('index'))
         
         file_path = session['uploaded_file']
-        
         # Check if file exists
         if not os.path.exists(file_path):
             flash('Uploaded file not found. Please upload again.')
             return redirect(url_for('index'))
-        
         # Process image
         result = process_image(file_path)
-        
         if result['success']:
             # Store results in session
             session['classification_result'] = result
-            
+            # Convert file_path to URL path for static serving
+            if file_path.startswith('static/'):
+                image_url = '/' + file_path.replace('\\', '/').replace('static/', 'static/')
+            else:
+                image_url = file_path
             return render_template('results.html',
-                                 image_path=file_path,
+                                 image_path=image_url,
                                  classification=result['classification'],
                                  confidence=result['confidence'],
                                  features=result['features'],
@@ -226,7 +248,15 @@ def generate_pattern():
             flash('An error occurred during pattern generation. Please try again.')
             return redirect(request.url)
     
-    return render_template('generate.html')
+    # Pass default values to prevent template errors on GET
+    return render_template('generate.html',
+        generated_svg=None,
+        parameters=None,
+        file_path=None,
+        authenticity_score=None,
+        confidence=None,
+        features={}
+    )
 
 @app.route('/api/classify', methods=['POST'])
 def api_classify():
