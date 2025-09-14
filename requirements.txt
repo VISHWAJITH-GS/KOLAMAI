@@ -1,0 +1,133 @@
+# Kolam AI - Python Dependencies
+# Core web framework and utilities
+
+# Flask Framework
+Flask==2.3.3
+Werkzeug==2.3.7
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+itsdangerous==2.1.2
+click==8.1.7
+
+# Computer Vision and Image Processing
+opencv-python==4.8.1.78
+opencv-contrib-python==4.8.1.78
+Pillow==10.0.1
+scikit-image==0.21.0
+imageio==2.31.5
+
+# Machine Learning and Data Science
+numpy==1.24.4
+scipy==1.11.4
+scikit-learn==1.3.2
+pandas==2.1.4
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Deep Learning Frameworks
+tensorflow==2.13.0
+keras==2.13.1
+torch==2.1.1
+torchvision==0.16.1
+torchaudio==2.1.1
+
+# Alternative lightweight ML (if TensorFlow/PyTorch too heavy)
+# tensorflow-lite==2.13.0
+# onnx==1.15.0
+# onnxruntime==1.16.3
+
+# Pattern Recognition and Geometric Analysis
+shapely==2.0.2
+networkx==3.2.1
+sympy==1.12
+
+# SVG Generation and Manipulation
+svglib==1.5.1
+svgwrite==1.4.3
+cairosvg==2.7.1
+
+# File Handling and Utilities
+python-magic==0.4.27
+pathlib2==2.3.7.post1
+uuid==1.30
+
+# Web APIs and HTTP
+requests==2.31.0
+urllib3==2.0.7
+
+# Data Storage and Serialization
+SQLAlchemy==2.0.23
+Flask-SQLAlchemy==3.1.1
+redis==5.0.1
+pymongo==4.6.0
+
+# Configuration and Environment
+python-decouple==3.8
+python-dotenv==1.0.0
+configparser==6.0.0
+
+# Authentication and Security (if needed later)
+Flask-Login==0.6.3
+Flask-WTF==1.2.1
+WTForms==3.1.1
+bcrypt==4.1.2
+
+# Background Tasks (optional)
+celery==5.3.4
+redis==5.0.1
+
+# Testing Framework
+pytest==7.4.3
+pytest-flask==1.3.0
+pytest-cov==4.1.0
+unittest2==1.1.0
+
+# Code Quality and Linting
+flake8==6.1.0
+black==23.11.0
+isort==5.12.0
+pylint==3.0.3
+
+# Performance and Monitoring
+gunicorn==21.2.0
+eventlet==0.33.3
+gevent==23.9.1
+
+# Documentation
+Sphinx==7.2.6
+sphinx-rtd-theme==1.3.0
+
+# Deployment and Production
+uWSGI==2.0.23
+supervisor==4.2.5
+
+# Cloud Storage (optional)
+boto3==1.34.0
+google-cloud-storage==2.10.0
+
+# Specific versions for stability in production
+# Pin these if deploying to production
+
+# Development only dependencies (install with pip install -r requirements-dev.txt)
+# jupyter==1.0.0
+# ipython==8.17.2
+# notebook==7.0.6
+
+# OS-specific dependencies
+# For Ubuntu/Debian systems, you might need:
+# sudo apt-get install python3-dev
+# sudo apt-get install libgl1-mesa-glx
+# sudo apt-get install libglib2.0-0
+# sudo apt-get install libsm6
+# sudo apt-get install libxext6
+# sudo apt-get install libxrender-dev
+# sudo apt-get install libgomp1
+
+# For macOS with Homebrew:
+# brew install python-tk
+# brew install cairo
+# brew install pkg-config
+
+# For Windows:
+# Visual Studio C++ Build Tools may be required
+# Microsoft Visual C++ 14.0 or greater

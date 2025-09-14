@@ -1,0 +1,74 @@
+# Kolam AI - File Structure & Descriptions
+
+## **app.py** (Flask Backend)
+Main Flask application handling web routes, file uploads, and API endpoints. Functions: `upload_file()`, `classify_pattern()`, `generate_pattern()`, `process_image()`. Variables: `UPLOAD_FOLDER`, `ALLOWED_EXTENSIONS`. Routes: `/`, `/upload`, `/classify`, `/generate`. Integrates image processing pipeline, calls ML models, manages user sessions, handles form data, serves static files, and returns JSON responses.
+
+## **static/** Directory
+
+### **static/css/style.css**
+Responsive CSS styling for web interface using Bootstrap framework. Classes: `.upload-area`, `.result-card`, `.pattern-grid`, `.loading-spinner`. Properties: flexbox layouts, hover effects, responsive breakpoints, color schemes (Tamil cultural colors - red, yellow, white). Animations for smooth transitions, mobile-first design, accessibility features, and modern UI components for enhanced user experience.
+
+### **static/js/main.js**
+Client-side JavaScript for interactive functionality. Functions: `uploadImage()`, `previewFile()`, `showResults()`, `generatePattern()`, `downloadSVG()`. Variables: `currentImage`, `classificationResult`, `generatedPattern`. Features: drag-drop upload, real-time preview, AJAX calls, form validation, loading states, error handling, and dynamic DOM manipulation for seamless user interaction.
+
+### **static/uploads/**
+Directory storing user-uploaded Kolam images temporarily. File naming convention: `timestamp_filename.ext`. Auto-cleanup after 24 hours. Security: file type validation, size limits (5MB), sanitized filenames. Organized by date subfolders for efficient management and storage optimization.
+
+### **static/generated/**
+Storage for AI-generated Kolam patterns in SVG/PNG formats. Files: `pattern_id_timestamp.svg`. Organized by pattern type and generation parameters. Includes metadata JSON files with generation settings, cultural authenticity scores, and pattern complexity metrics for tracking and analysis.
+
+## **templates/** Directory
+
+### **templates/base.html**
+Base Jinja2 template with common HTML structure. Blocks: `{% block title %}`, `{% block content %}`, `{% block scripts %}`. Includes Bootstrap CDN, custom CSS, responsive viewport meta, favicon, navigation bar, footer with cultural attribution, SEO meta tags, and accessibility features for screen readers and keyboard navigation.
+
+### **templates/index.html**
+Main homepage template extending base.html. Features: hero section, upload area, recent classifications gallery, cultural information about Kolam tradition. Variables: `{{ recent_patterns }}`, `{{ statistics }}`. Interactive elements: file upload zone, pattern showcase carousel, cultural significance sections, and call-to-action buttons for user engagement.
+
+### **templates/results.html**
+Classification results display template. Variables: `{{ image_path }}`, `{{ classification }}`, `{{ confidence }}`, `{{ features }}`, `{{ cultural_info }}`. Sections: original image preview, classification label with confidence score, extracted pattern features, cultural significance explanation, related patterns suggestions, and social sharing options for community engagement.
+
+### **templates/generate.html**
+Pattern generation interface template. Form elements: pattern type dropdown, grid size slider, symmetry options, color scheme selector. Variables: `{{ generated_svg }}`, `{{ parameters }}`. Features: real-time parameter adjustment, pattern preview, download options, generation history, cultural authenticity indicator, and step-by-step drawing instructions.
+
+## **models/** Directory
+
+### **models/kolam_classifier.py**
+CNN-based Kolam classification model using TensorFlow/PyTorch. Classes: `KolamClassifier`, `FeatureExtractor`. Functions: `load_model()`, `predict()`, `preprocess_image()`, `extract_features()`. Variables: `MODEL_PATH`, `CLASS_LABELS`, `INPUT_SHAPE`. Architecture: MobileNet backbone, custom dense layers, dropout regularization. Outputs: classification probabilities, feature vectors, confidence scores.
+
+### **models/pattern_generator.py**
+Generative model for creating authentic Kolam patterns. Classes: `PatternGenerator`, `RuleEngine`, `SymmetryController`. Functions: `generate()`, `apply_rules()`, `validate_authenticity()`. Variables: `CULTURAL_RULES`, `SYMMETRY_GROUPS`, `GRID_SIZES`. Methods: rule-based generation, mathematical constraints, cultural validation, SVG export, and traditional pattern templates for authentic recreation.
+
+### **models/feature_extractor.py**
+Computer vision feature extraction module. Functions: `extract_geometric_features()`, `calculate_symmetry()`, `detect_dots()`, `analyze_curves()`. Variables: `SYMMETRY_THRESHOLD`, `DOT_DETECTION_PARAMS`. Features: contour analysis, Hu moments, Fourier descriptors, symmetry measures, complexity indices, topological properties, and cultural pattern signatures for comprehensive analysis.
+
+## **utils/** Directory
+
+### **utils/image_processor.py**
+Core image processing utilities using OpenCV. Functions: `preprocess()`, `detect_edges()`, `find_contours()`, `enhance_contrast()`, `remove_noise()`. Variables: `CANNY_THRESHOLDS`, `KERNEL_SIZE`, `BLUR_PARAMS`. Operations: grayscale conversion, noise reduction, edge detection, morphological operations, histogram equalization, and geometric transformations for optimal pattern analysis.
+
+### **utils/pattern_analyzer.py**
+Advanced pattern analysis algorithms. Functions: `analyze_topology()`, `measure_complexity()`, `detect_pattern_type()`, `calculate_metrics()`. Variables: `COMPLEXITY_WEIGHTS`, `PATTERN_SIGNATURES`. Methods: graph theory analysis, fractal dimension calculation, pattern matching, statistical measures, and cultural authenticity scoring for comprehensive pattern understanding and classification.
+
+### **utils/cultural_validator.py**
+Cultural authenticity validation system. Functions: `validate_traditional_rules()`, `check_symmetry_groups()`, `verify_cultural_elements()`. Variables: `TRADITIONAL_PATTERNS`, `CULTURAL_CONSTRAINTS`, `REGIONAL_VARIATIONS`. Rules: geometric constraints, symbolic meanings, regional authenticity, seasonal appropriateness, and traditional mathematical principles ensuring generated patterns respect Tamil cultural heritage.
+
+### **utils/svg_generator.py**
+SVG pattern generation and export utilities. Functions: `create_svg()`, `add_curves()`, `apply_symmetry()`, `optimize_paths()`. Variables: `SVG_TEMPLATE`, `PATH_PRECISION`, `COLOR_SCHEMES`. Features: vector graphics creation, Bezier curve handling, symmetry transformations, path optimization, scalable output, and print-ready formats for practical Kolam drawing.
+
+### **utils/helpers.py**
+Common utility functions and constants. Functions: `allowed_file()`, `generate_filename()`, `cleanup_files()`, `log_activity()`. Variables: `ALLOWED_EXTENSIONS`, `MAX_FILE_SIZE`, `LOG_FORMAT`. Utilities: file validation, secure filename generation, temporary file management, error logging, configuration loading, and shared constants for consistent application behavior.
+
+## **data/** Directory
+
+### **data/sample_patterns/**
+Curated collection of authentic Kolam images organized by categories. Subfolders: `pulli_kolam/`, `sikku_kolam/`, `rangoli/`, `festival_patterns/`. Metadata: JSON files with cultural context, regional origins, complexity ratings. Total: 50+ high-quality images with annotations for training, testing, and demonstration purposes.
+
+### **data/cultural_database.json**
+Comprehensive cultural information database. Structure: pattern types, symbolic meanings, regional variations, festival associations, historical context, mathematical properties. Fields: `pattern_id`, `name`, `significance`, `region`, `season`, `complexity_level`. Used for educational content and cultural authenticity validation in the application.
+
+### **data/training_labels.csv**
+Training dataset labels and metadata. Columns: `filename`, `category`, `subcategory`, `complexity`, `authenticity_score`, `region`, `annotator`. Contains 500+ labeled examples for machine learning model training, validation, and testing with expert annotations and cultural verification.
+
+### **data/models/saved/**
+Directory for trained model files and weights. Files: `kolam_classifier.h5`, `feature_extractor.pkl`, `pattern_embeddings.npy`. Includes model architecture JSON, training history, hyperparameters, and performance metrics for reproducible results and model versioning.
