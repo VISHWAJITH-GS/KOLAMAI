@@ -1,0 +1,23 @@
+#resultsContainer {
+  min-height: 150px;
+}
+
+.pattern-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+.pattern-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.social-links a {
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: #0d6efd;
+}
