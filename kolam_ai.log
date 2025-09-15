@@ -777,3 +777,127 @@
 2025-09-14 20:13:45,991 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:13:45] "GET /generate_pattern?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
 2025-09-14 20:13:46,068 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:13:46] "GET /generate_pattern?__debugger__=yes&cmd=resource&f=console.png&s=ffkKqLt9PJKEz2Rj3Cv3 HTTP/1.1" 200 -
 2025-09-14 20:13:46,080 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:13:46] "GET /generate_pattern?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-14 20:31:28,482 - app - INFO - Using fallback AI models (development mode)
+2025-09-14 20:31:28,483 - app - WARNING - Cultural database not found, using empty database
+2025-09-14 20:31:28,552 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.219.129:5000
+2025-09-14 20:31:28,552 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 20:31:28,554 - werkzeug - INFO -  * Restarting with stat
+2025-09-14 20:31:29,172 - app - INFO - Using fallback AI models (development mode)
+2025-09-14 20:31:29,172 - app - WARNING - Cultural database not found, using empty database
+2025-09-14 20:31:29,218 - werkzeug - WARNING -  * Debugger is active!
+2025-09-14 20:31:29,226 - werkzeug - INFO -  * Debugger PIN: 320-477-849
+2025-09-14 20:31:31,190 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:31] "GET / HTTP/1.1" 200 -
+2025-09-14 20:31:31,691 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:31] "GET /static/css/sruthi-theme.css HTTP/1.1" 200 -
+2025-09-14 20:31:31,756 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-14 20:31:31,912 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:31] "[36mGET /static/images/traditional-kolam.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:31:31,916 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:31] "[36mGET /static/uploads/sample1.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:31:31,953 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:31] "[36mGET /static/uploads/sample2.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:31:31,956 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:31] "[36mGET /static/uploads/sample3.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:31:32,112 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:32] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2025-09-14 20:31:32,115 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:32] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:31:32,159 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:32] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:31:32,184 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:32] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -
+2025-09-14 20:31:38,093 - app - INFO - File uploaded: kolam-sam_20250914_203138_566b56cd.jpg
+2025-09-14 20:31:38,095 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-09-14 20:31:38,150 - app - INFO - Final classification: kambi_kolam, confidence: 0.46108888121088243
+2025-09-14 20:31:38,151 - app - INFO - Features type: <class 'dict'>
+2025-09-14 20:31:38,183 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "GET /classify HTTP/1.1" 200 -
+2025-09-14 20:31:38,227 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "[36mGET /static/css/sruthi-theme.css HTTP/1.1[0m" 304 -
+2025-09-14 20:31:38,228 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-14 20:31:38,232 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "GET /static/uploads/2025-09-14/kolam-sam_20250914_203138_566b56cd.jpg HTTP/1.1" 200 -
+2025-09-14 20:31:38,299 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:31:38,299 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2025-09-14 20:31:38,311 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:31:38,320 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:31:38] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -
+2025-09-14 20:32:49,752 - app - INFO - Using fallback AI models (development mode)
+2025-09-14 20:32:49,752 - app - WARNING - Cultural database not found, using empty database
+2025-09-14 20:32:49,820 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.219.129:5000
+2025-09-14 20:32:49,820 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 20:32:49,822 - werkzeug - INFO -  * Restarting with stat
+2025-09-14 20:32:50,379 - app - INFO - Using fallback AI models (development mode)
+2025-09-14 20:32:50,380 - app - WARNING - Cultural database not found, using empty database
+2025-09-14 20:32:50,414 - werkzeug - WARNING -  * Debugger is active!
+2025-09-14 20:32:50,422 - werkzeug - INFO -  * Debugger PIN: 320-477-849
+2025-09-14 20:32:54,189 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "GET / HTTP/1.1" 200 -
+2025-09-14 20:32:54,469 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,529 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/css/sruthi-theme.css HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,542 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/images/traditional-kolam.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,545 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/uploads/sample1.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,555 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/uploads/sample2.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,555 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/uploads/sample3.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,895 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,896 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,906 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:32:54,914 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:32:54] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -
+2025-09-14 20:33:02,891 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:02] "[35m[1mGET /upload HTTP/1.1[0m" 500 -
+2025-09-14 20:33:02,924 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:02] "GET /upload?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-09-14 20:33:02,928 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:02] "GET /upload?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-09-14 20:33:02,990 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:02] "GET /upload?__debugger__=yes&cmd=resource&f=console.png&s=hbs93hJvwKHXhn3LH1tU HTTP/1.1" 200 -
+2025-09-14 20:33:03,009 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:03] "GET /upload?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-09-14 20:33:05,204 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:05] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:33:05,213 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:05] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:33:05,222 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:05] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -
+2025-09-14 20:33:13,622 - app - INFO - File uploaded: kolam-sam_20250914_203313_4c27311e.jpg
+2025-09-14 20:33:13,624 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-09-14 20:33:13,676 - app - INFO - Final classification: padi_kolam, confidence: 0.4188659696659761
+2025-09-14 20:33:13,677 - app - INFO - Features type: <class 'dict'>
+2025-09-14 20:33:13,715 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "GET /classify HTTP/1.1" 200 -
+2025-09-14 20:33:13,750 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "[36mGET /static/css/sruthi-theme.css HTTP/1.1[0m" 304 -
+2025-09-14 20:33:13,753 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "GET /static/uploads/2025-09-14/kolam-sam_20250914_203313_4c27311e.jpg HTTP/1.1" 200 -
+2025-09-14 20:33:13,755 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-14 20:33:13,801 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2025-09-14 20:33:13,814 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:33:13,824 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:33:13,832 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:13] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -
+2025-09-14 20:33:41,967 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:41] "GET / HTTP/1.1" 200 -
+2025-09-14 20:33:42,002 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/css/sruthi-theme.css HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,006 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,008 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/images/traditional-kolam.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,013 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/uploads/sample1.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,018 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/uploads/sample2.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,021 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/uploads/sample3.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,096 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,097 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,109 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:33:42,116 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:33:42] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -
+2025-09-14 20:49:20,906 - app - INFO - Using fallback AI models (development mode)
+2025-09-14 20:49:20,907 - app - WARNING - Cultural database not found, using empty database
+2025-09-14 20:49:20,942 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.219.129:5000
+2025-09-14 20:49:20,942 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 20:49:20,952 - werkzeug - INFO -  * Restarting with stat
+2025-09-14 20:49:21,546 - app - INFO - Using fallback AI models (development mode)
+2025-09-14 20:49:21,546 - app - WARNING - Cultural database not found, using empty database
+2025-09-14 20:49:21,562 - werkzeug - WARNING -  * Debugger is active!
+2025-09-14 20:49:21,577 - werkzeug - INFO -  * Debugger PIN: 120-764-622
+2025-09-14 20:49:26,358 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:26] "GET / HTTP/1.1" 200 -
+2025-09-14 20:49:26,986 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:26] "[36mGET /static/uploads/sample2.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,010 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/uploads/sample3.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,045 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,055 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/css/sruthi-theme.css HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,129 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/images/traditional-kolam.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,138 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/uploads/sample1.jpg HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,441 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,442 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,454 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:49:27,502 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:49:27] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -
+2025-09-14 20:51:08,350 - app - INFO - File uploaded: kolam-sam_20250914_205108_d8f5a613.jpg
+2025-09-14 20:51:08,354 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-09-14 20:51:08,476 - app - INFO - Final classification: kambi_kolam, confidence: 0.4271061060447006
+2025-09-14 20:51:08,477 - app - INFO - Features type: <class 'dict'>
+2025-09-14 20:51:08,509 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "GET /classify HTTP/1.1" 200 -
+2025-09-14 20:51:08,547 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "[36mGET /static/css/sruthi-theme.css HTTP/1.1[0m" 304 -
+2025-09-14 20:51:08,552 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-09-14 20:51:08,554 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "GET /static/uploads/2025-09-14/kolam-sam_20250914_205108_d8f5a613.jpg HTTP/1.1" 200 -
+2025-09-14 20:51:08,617 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-09-14 20:51:08,627 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2025-09-14 20:51:08,631 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "[36mGET /static/images/favicon-32x32.png HTTP/1.1[0m" 304 -
+2025-09-14 20:51:08,641 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 20:51:08] "[36mGET /static/images/favicon-16x16.png HTTP/1.1[0m" 304 -

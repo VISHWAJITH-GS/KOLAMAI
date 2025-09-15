@@ -1,0 +1,30 @@
+<div class="gallery-content">
+    <h2>Kolam Pattern Gallery</h2>
+    
+    <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pulli">Pulli Kolam</button>
+        <button class="filter-btn" data-filter="kambi">Kambi Kolam</button>
+        <button class="filter-btn" data-filter="sikku">Sikku Kolam</button>
+        <button class="filter-btn" data-filter="padi">Padi Kolam</button>
+    </div>
+    
+    <div class="gallery-grid" id="galleryGrid">
+        <!-- Images will be loaded dynamically -->
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading gallery...</p>
+        </div>
+    </div>
+    
+    <div class="gallery-modal" id="galleryModal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div class="modal-info">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+        </div>
+        <button class="modal-nav prev">&lt;</button>
+        <button class="modal-nav next">&gt;</button>
+    </div>
+</div>

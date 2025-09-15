@@ -710,38 +710,64 @@ def process_image_data(image_data):
 def generate_kolam_pattern(**params):
     """Generate Kolam pattern with given parameters"""
     try:
+        # Use the pattern generator to create pattern data
         if pattern_generator:
-            # Use actual pattern generator
-            result = pattern_generator.generate(**params)
+            pattern_data = pattern_generator.generate(
+                pattern_type=params.get('pattern_type'),
+                grid_size=int(params.get('grid_size', 10)),
+                symmetry=params.get('symmetry', 'rotational'),
+                color_scheme=params.get('color_scheme', 'traditional'),
+                complexity=int(params.get('complexity', 5))
+            )
         else:
             # Fallback for development
-            result = {
-                'svg_content': '<svg><circle cx="50" cy="50" r="40" stroke="black" fill="none"/></svg>',
-                'parameters': params,
-                'authenticity_score': 0.8
+            pattern_data = {
+                'svg': '<svg><circle cx="50" cy="50" r="40" stroke="black" fill="none"/></svg>',
+                'pattern_type': params.get('pattern_type', 'pulli_kolam'),
+                'authenticity_score': 0.8,
+                'metadata': {
+                    'grid_size': int(params.get('grid_size', 10)),
+                    'complexity': int(params.get('complexity', 5)),
+                    'symmetry': params.get('symmetry', 'rotational'),
+                }
             }
-        
-        # Generate filename and save
+
+        # Validate pattern authenticity
+        try:
+            from utils.cultural_validator import validate_pattern
+            authenticity_score = validate_pattern(pattern_data, pattern_data.get('pattern_type', 'pulli_kolam'))
+            if isinstance(authenticity_score, dict) and 'confidence_score' in authenticity_score:
+                authenticity_score = authenticity_score['confidence_score']
+        except Exception:
+            authenticity_score = pattern_data.get('authenticity_score', 0.8)
+
+        # Prepare SVG content
+        svg_content = pattern_data.get('svg') or pattern_data.get('svg_content')
+        parameters = {
+            'pattern_type': pattern_data.get('pattern_type', params.get('pattern_type', 'pulli_kolam')),
+            'grid_size': pattern_data.get('metadata', {}).get('grid_size', params.get('grid_size', 10)),
+            'symmetry': pattern_data.get('metadata', {}).get('symmetry', params.get('symmetry', 'rotational')),
+            'complexity': pattern_data.get('metadata', {}).get('complexity', params.get('complexity', 5)),
+            'color_scheme': params.get('color_scheme', 'traditional')
+        }
+
+        # Save SVG file
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         filename = f"pattern_{uuid.uuid4().hex[:8]}_{timestamp}.svg"
-        
-        # Use the svg subfolder
         svg_folder = os.path.join(GENERATED_FOLDER, 'svg')
         os.makedirs(svg_folder, exist_ok=True)
         file_path = os.path.join(svg_folder, filename)
-        
-        # Save SVG file
         with open(file_path, 'w') as f:
-            f.write(result['svg_content'])
-        
-        result.update({
+            f.write(svg_content)
+
+        return {
             'success': True,
+            'svg_content': svg_content,
+            'parameters': parameters,
+            'authenticity_score': authenticity_score,
             'file_path': file_path,
             'filename': filename
-        })
-        
-        return result
-        
+        }
     except Exception as e:
         logger.error(f"Error generating pattern: {e}")
         return {'success': False, 'error': str(e)}
