@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="{% block meta_description %}Kolam AI - Authentic Tamil Kolam pattern recognition and generation using advanced AI. Discover, classify, and create traditional Kolam designs with cultural authenticity.{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Digi Kolam - Authentic Tamil Kolam pattern recognition and generation using advanced AI. Discover, classify, and create traditional Kolam designs with cultural authenticity.{% endblock %}">
     <meta name="keywords" content="Kolam, Tamil culture, AI, pattern recognition, traditional art, machine learning, cultural heritage">
-    <meta name="author" content="Kolam AI">
+    <meta name="author" content="Digi Kolam">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph Meta Tags -->
@@ -17,12 +17,12 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request.url }}">
     <meta property="og:image" content="{{ url_for('static', filename='images/kolam-og-image.jpg') }}">
-    <meta property="og:site_name" content="Kolam AI">
+    <meta property="og:site_name" content="Digi Kolam">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{% block twitter_title %}Kolam AI - Traditional Pattern Recognition{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}Digi Kolam - Traditional Pattern Recognition{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}AI-powered Kolam pattern recognition and generation{% endblock %}">
     <meta name="twitter:image" content="{{ url_for('static', filename='images/kolam-og-image.jpg') }}">
     
@@ -37,7 +37,7 @@
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
     
     <!-- Page Title -->
-    <title>{% block title %}Kolam AI - Traditional Tamil Pattern Recognition{% endblock %}</title>
+    <title>{% block title %}Digi Kolam - Traditional Tamil Pattern Recognition{% endblock %}</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,7 +69,7 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Kolam AI",
+        "name": "Digi Kolam",
         "description": "AI-powered Tamil Kolam pattern recognition and generation system",
         "url": "{{ request.url_root }}",
         "applicationCategory": "EducationalApplication",
@@ -98,8 +98,8 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <span class="kolam">கோலம்</span>
-                <span class="ai">AI</span>
+                <span class="kolam">Digi</span>
+                <span class="ai">கோலம்</span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li>
@@ -198,8 +198,8 @@
         <div class="footer-container">
             <div class="footer-links">
                 <div class="footer-logo">
-                    <span class="kolam">கோலம்</span>
-                    <span class="ai">AI</span>
+                    <span class="kolam">Digi</span>
+                    <span class="ai">கோலம்</span>
                 </div>
                 <p>Preserving Tamil cultural heritage through advanced artificial intelligence. 
                    Discover, classify, and create authentic Kolam patterns with respect for tradition.</p>
@@ -235,14 +235,14 @@
             
             <div class="footer-links footer-contact">
                 <h4>Contact Us</h4>
-                <p><i class="fas fa-envelope"></i> contact@kolamai.org</p>
+                <p><i class="fas fa-envelope"></i> contact@digikolam.org</p>
                 <p><i class="fas fa-phone"></i> +91 98765 43210</p>
                 <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu, India</p>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; {% if current_year %}{{ current_year }}{% else %}2025{% endif %} Kolam AI. Made with <i class="fas fa-heart"></i> for Tamil culture.</p>
+            <p>&copy; {% if current_year %}{{ current_year }}{% else %}2025{% endif %} Digi Kolam. Made with <i class="fas fa-heart"></i> for Tamil culture.</p>
         </div>
     </footer>
     
